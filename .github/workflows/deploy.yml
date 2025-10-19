@@ -18,4 +18,6 @@ jobs:
       - name: Push to Hugging Face Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://ShuoDuan:$HF_TOKEN@huggingface.co/spaces/ShuoDuan/FinTech-Self-Learning-Project main
+        run: |
+          git remote add space https://ShuoDuan:$HF_TOKEN@huggingface.co/spaces/ShuoDuan/FinTech_Self-Learning-Project || true
+          git push --force space main
